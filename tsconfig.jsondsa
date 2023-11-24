@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs", // or "ES6" if you're targeting older browsers
+    "target": "es6",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    "moduleResolution": "Node"
+  },
+  "include": ["main.ts"]
+}

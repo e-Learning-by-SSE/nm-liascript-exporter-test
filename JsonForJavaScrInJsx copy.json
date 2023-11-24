@@ -1,0 +1,37 @@
+{
+"sections": [
+{
+	"title": "`gap-text`",
+	"indent": 4,
+	"body": [
+	  "What did the fish say, when he hit the wall?",
+	  {
+		"quiz": "gap-text",
+		"body": {
+		  "p": [
+			{
+			  "bold": "Some Inlines"
+			},
+			" ",
+			{
+			  "input": "text",
+			  "solution": "damn"
+			},
+			" some more test ",
+			{
+			  "input": "selection",
+			  "solution": 1,
+			  "options": [
+				"option1",
+				"option2",
+				"option3"
+			  ]
+			},
+			" some more test "
+		  ]
+		}
+	  }
+	]
+}
+]
+}

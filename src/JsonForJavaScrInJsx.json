@@ -1,0 +1,189 @@
+{
+	"lessonId": "63xonso2",
+	"slug": "javascript-in-jsx-with-curly-braces",
+	"title": "JavaScript in JSX with Curly Braces",
+	"subtitle": "Nobis quia animi sint.",
+	"description": "Sint omnis quasi corporis rem fugiat atque iusto. Et aut nihil doloremque deleniti et consequuntur. Reiciendis est nesciunt voluptate sed recusandae. Provident ea ducimus ratione voluptas qui. Amet quae facilis ducimus facere.\nAut animi vel placeat. Quidem nemo mollitia non exercitationem quae minus ea rerum architecto. Molestiae dolor laboriosam illo temporibus fugiat. Consectetur laudantium qui vitae ullam velit beatae architecto. Saepe quis quisquam provident ducimus dolores in magni sed quia. Architecto nulla molestias similique voluptatem est ex ut.\nTemporibus animi odit repellendus maiores temporibus dolor voluptatibus sunt nobis. Et repellendus quasi. Provident non qui quod.",
+	"imgUrl": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=256",
+	"authors": [
+		{
+			"username": "kent-c-dodds"
+		}
+	],
+	"licenseId": 1,
+	"content": [
+		{
+			"meta": {
+				"duration": 300
+			},
+			"type": "video",
+			"value": {
+				"url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+			}
+		},
+		{
+			"meta": {
+				"estimatedDuration": 300
+			},
+			"type": "article",
+			"value": {
+				"content": "# Introduction\n\nSource: https://github.com/timlrx/tailwind-nextjs-starter-blog\n\nParsing and display of math equations is included in this blog template. Parsing of math is enabled by `remark-math` and `rehype-katex`.\nKaTeX and its associated font is included in `_document.js` so feel free to use it on any page.\n^[For the full list of supported TeX functions, check out the [KaTeX documentation](https://katex.org/docs/supported.html)]\n\nInline math symbols can be included by enclosing the term between the `$` symbol.\n\nMath code blocks are denoted by `$$`.\n\nIf you intend to use the `$` sign instead of math, you can escape it (`\\$`), or specify the HTML entity (`&dollar;`) [^2]\n\nInline or manually enumerated footnotes are also supported. Click on the links above to see them in action.\n\n[^2]: \\$10 and &dollar;20.\n\n# Deriving the OLS Estimator\n\nUsing matrix notation, let $n$ denote the number of observations and $k$ denote the number of regressors.\n\nThe vector of outcome variables $\\mathbf{Y}$ is a $n \\times 1$ matrix,\n\n```tex\n\\mathbf{Y} = \\left[\\begin{array}\n  {c}\n  y_1 \\\\\n  . \\\\\n  . \\\\\n  . \\\\\n  y_n\n\\end{array}\\right]\n```\n\n$$\n\\mathbf{Y} = \\left[\\begin{array}\n  {c}\n  y_1 \\\\\n  . \\\\\n  . \\\\\n  . \\\\\n  y_n\n\\end{array}\\right]\n$$\n\nThe matrix of regressors $\\mathbf{X}$ is a $n \\times k$ matrix (or each row is a $k \\times 1$ vector),\n\n```latex\n\\mathbf{X} = \\left[\\begin{array}\n  {ccccc}\n  x_{11} & . & . & . & x_{1k} \\\\\n  . & . & . & . & .  \\\\\n  . & . & . & . & .  \\\\\n  . & . & . & . & .  \\\\\n  x_{n1} & . & . & . & x_{nn}\n\\end{array}\\right] =\n\\left[\\begin{array}\n  {c}\n  \\mathbf{x}'_1 \\\\\n  . \\\\\n  . \\\\\n  . \\\\\n  \\mathbf{x}'_n\n\\end{array}\\right]\n```\n\n$$\n\\mathbf{X} = \\left[\\begin{array}\n  {ccccc}\n  x_{11} & . & . & . & x_{1k} \\\\\n  . & . & . & . & .  \\\\\n  . & . & . & . & .  \\\\\n  . & . & . & . & .  \\\\\n  x_{n1} & . & . & . & x_{nn}\n\\end{array}\\right] =\n\\left[\\begin{array}\n  {c}\n  \\mathbf{x}'_1 \\\\\n  . \\\\\n  . \\\\\n  . \\\\\n  \\mathbf{x}'_n\n\\end{array}\\right]\n$$\n\nThe vector of error terms $\\mathbf{U}$ is also a $n \\times 1$ matrix.\n\nAt times it might be easier to use vector notation. For consistency, I will use the bold small x to denote a vector and capital letters to denote a matrix. Single observations are denoted by the subscript.\n\n## Least Squares\n\n**Start**:  \n$$y_i = \\mathbf{x}'_i \\beta + u_i$$\n\n**Assumptions**:\n\n1. Linearity (given above)\n2. $E(\\mathbf{U}|\\mathbf{X}) = 0$ (conditional independence)\n3. rank($\\mathbf{X}$) = $k$ (no multi-collinearity i.e. full rank)\n4. $Var(\\mathbf{U}|\\mathbf{X}) = \\sigma^2 I_n$ (Homoskedascity)\n\n**Aim**:  \nFind $\\beta$ that minimises the sum of squared errors:\n\n$$\nQ = \\sum_{i=1}^{n}{u_i^2} = \\sum_{i=1}^{n}{(y_i - \\mathbf{x}'_i\\beta)^2} = (Y-X\\beta)'(Y-X\\beta)\n$$\n\n**Solution**:  \nHints: $Q$ is a $1 \\times 1$ scalar, by symmetry $\\frac{\\partial b'Ab}{\\partial b} = 2Ab$.\n\nTake matrix derivative w.r.t $\\beta$:\n\n```tex\n\\begin{aligned}\n  \\min Q           & = \\min_{\\beta} \\mathbf{Y}'\\mathbf{Y} - 2\\beta'\\mathbf{X}'\\mathbf{Y} +\n  \\beta'\\mathbf{X}'\\mathbf{X}\\beta \\\\\n                   & = \\min_{\\beta} - 2\\beta'\\mathbf{X}'\\mathbf{Y} + \\beta'\\mathbf{X}'\\mathbf{X}\\beta \\\\\n  \\text{[FOC]}~~~0 & =  - 2\\mathbf{X}'\\mathbf{Y} + 2\\mathbf{X}'\\mathbf{X}\\hat{\\beta}                  \\\\\n  \\hat{\\beta}      & = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{Y}                              \\\\\n                   & = (\\sum^{n} \\mathbf{x}_i \\mathbf{x}'_i)^{-1} \\sum^{n} \\mathbf{x}_i y_i\n\\end{aligned}\n```\n\n$$\n\\begin{aligned}\n  \\min Q           & = \\min_{\\beta} \\mathbf{Y}'\\mathbf{Y} - 2\\beta'\\mathbf{X}'\\mathbf{Y} +\n  \\beta'\\mathbf{X}'\\mathbf{X}\\beta \\\\\n                   & = \\min_{\\beta} - 2\\beta'\\mathbf{X}'\\mathbf{Y} + \\beta'\\mathbf{X}'\\mathbf{X}\\beta \\\\\n  \\text{[FOC]}~~~0 & =  - 2\\mathbf{X}'\\mathbf{Y} + 2\\mathbf{X}'\\mathbf{X}\\hat{\\beta}                  \\\\\n  \\hat{\\beta}      & = (\\mathbf{X}'\\mathbf{X})^{-1}\\mathbf{X}'\\mathbf{Y}                              \\\\\n                   & = (\\sum^{n} \\mathbf{x}_i \\mathbf{x}'_i)^{-1} \\sum^{n} \\mathbf{x}_i y_i\n\\end{aligned}\n$$\n\n## Inline Highlighting\n\nSample of inline highlighting `sum = parseInt(num1) + parseInt(num2)`\n\n## Code Blocks\n\nSome Javascript code\n\n```js {1,3-4} showLineNumbers\nvar num1, num2, sum;\nnum1 = prompt(\"Enter first number\");\nnum2 = prompt(\"Enter second number\");\nsum = parseInt(num1) + parseInt(num2); // \"+\" means \"add\"\nalert(\"Sum = \" + sum); // \"+\" means combine into a string\n```\n\nSome Java code\n\n```java showLineNumbers\npublic class HelloWorld {\n\tpublic static void main(String[] args) {\n\t\tint count = 0;\n\n\t\tfor (int i = 0; i < 10; i++) {\n\t\t\tSystem.out.println(\"Count: \" + count);\n\t\t\tcount++;\n\t\t}\n\t}\n}\n```\n\nSome Python code 🐍\n\n```python\ndef fib():\n    a, b = 0, 1\n    while True:            # First iteration:\n        yield a            # yield 0 to start with and then\n        a, b = b, a + b    # a will now be 1, and b will also be 1, (0 + 1)\n\nfor index, fibonacci_number in zip(range(10), fib()):\n     print('{i:3}: {f:3}'.format(i=index, f=fibonacci_number))\n```\n"
+			}
+		}
+	],
+	"quiz": {
+		"config": null,
+		"questions": [
+			{
+				"type": "multiple-choice",
+				"hints": [
+					{
+						"hintId": "abc",
+						"content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero laudantium sequi illo, veritatis labore culpa, eligendi, quod consequatur autem ad dolorem explicabo quos alias harum fuga sapiente reiciendis. Incidunt, voluptates."
+					},
+					{
+						"hintId": "def",
+						"content": "# Lorem ipsum dolor \n- Eins\n- Zwei"
+					}
+				],
+				"answers": [
+					{
+						"content": "Very Good",
+						"answerId": "1fc74b31-7772-4ea8-b570-60b5c104f804",
+						"isCorrect": true
+					},
+					{
+						"content": "Good",
+						"answerId": "35d310ee-1acf-48e0-8f8c-090acd0e873a",
+						"isCorrect": true
+					},
+					{
+						"content": "Bad",
+						"answerId": "cd33a2ef-95e8-4353-ad1d-de778d62ad57",
+						"isCorrect": false
+					},
+					{
+						"content": "Very Bad",
+						"answerId": "211b5171-d7b2-4fc9-98ab-88af35f53df2",
+						"isCorrect": false
+					}
+				],
+				"statement": "# How was your day?\nLorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi molestias doloribus assumenda aspernatur in maxime numquam. Sint quas nobis voluptatum nemo consequatur aperiam ea sit eveniet, perferendis iure! Fugiat, optio!",
+				"questionId": "923d78a5-af38-4599-980a-2b4cb62e4014",
+				"questionStep": 1,
+				"withCertainty": true
+			},
+			{
+				"type": "exact",
+				"hints": [],
+				"statement": "# Was ist 1 + 1 ?",
+				"questionId": "edbcf6a7-f9e9-4efe-b7ed-2bd0096c4e1d",
+				"caseSensitive": true,
+				"withCertainty": true,
+				"acceptedAnswers": [
+					{
+						"value": "2",
+						"acceptedAnswerId": "724f781e-56b2-4057-831e-b1d6962c48b1"
+					}
+				]
+			},
+			{
+				"type": "text",
+				"hints": [],
+				"statement": "# Was ist 1 + 1 ?",
+				"questionId": "34fca2c2-c547-4f66-9a4e-927770a55090",
+				"withCertainty": true
+			},
+			{
+				"type": "programming",
+				"hints": [
+					{
+						"hintId": "asdrfewq",
+						"content": "```java\nSystem.out.println();```"
+					},
+					{
+						"hintId": "nm91qn89o",
+						"content": "# Lorem ipsum dolor \n- Eins\n- Zwei"
+					}
+				],
+				"custom": {
+					"mode": "standalone",
+					"expectedOutput": "Hello World",
+					"solutionTemplate": "public class Solution {\n\tpublic static void main(String[] args) {\n\t\tSystem.out.println(\"Hello World\");\n\t}\n}"
+				},
+				"language": "java",
+				"statement": "# Hello World\n\nErstelle ein Programm, welches `Hello World` auf der Konsole ausgibt.",
+				"questionId": "b6169fcf-3380-4062-9ad5-0af8826f2dfe",
+				"withCertainty": false
+			},
+			{
+				"type": "programming",
+				"hints": [
+					{
+						"hintId": "dskfjsdk",
+						"content": "```ts\n// Verwende eine for-Schleife, um über alle Zahlen der Liste zu iterieren.\nfor (let i = 0; i < numbers.length; i++) {\n\t// DEINE LÖSUNG HIER\n}\n```"
+					},
+					{
+						"hintId": "cb3m9pkog",
+						"content": "# Lorem ipsum dolor \n- Eins\n- Zwei"
+					}
+				],
+				"custom": {
+					"mode": "callable",
+					"mainFile": "import java.util.Arrays;\n\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint[][] testCases = new int[][] {\n\t\t\tnew int[] { 1, 1 },\n\t\t\tnew int[] { 1, 2, 3, 4, 5 },\n\t\t\tnew int[] { 7 },\n\t\t\tnew int[] { }\n\t\t};\n\n\t\tfor (int[] testCase : testCases) {\n\t\t\tSystem.out.println(\"### TEST\");\n\t\t\tSystem.out.println(Arrays.toString(testCase));\n\t\t\tSystem.out.println(\"### EXPECTED\");\n\t\t\tSystem.out.println(sumExpected(testCase));\n\t\t\tSystem.out.println(\"### ACTUAL\");\n\t\t\tSystem.out.println(new Solution().sum(testCase));\n\t\t}\n\t}\n\n\tprivate static int sumExpected(int[] numbers) {\n\tint sum = 0;\n\t\tfor (int number : numbers) {\n\t\t\tsum += number;\n\t\t}\n\t\treturn sum;\n\t}\n}\n",
+					"solutionTemplate": "public class Solution {\n\tpublic int sum(int[] numbers) {\n\t\tif (numbers.length == 0) {\n\t\t\treturn -1; // Produce failing test case\n\t\t}\n\n\tint sum = 0;\n\t\tfor (int number : numbers) {\n\t\t\tsum += number;\n\t\t}\n\t\treturn sum;\n\t}\n}"
+				},
+				"language": "java",
+				"statement": "# Schleifen\n\nImplementiere einen Algorithmus, der als Eingabe eine Liste von Zahlen erhält und die Summe aller Zahlen in der Liste zurückgibt.\n\n**Beispiel:**\n\n**Eingabe**: `[1, 2, 3, 4, 5]`  \n**Ausgabe**: `15`\n",
+				"questionId": "dee8dfd5-ee07-4071-bf7b-33b4cb1fe623",
+				"withCertainty": false
+			},
+			{
+				"type": "programming",
+				"hints": [
+					{
+						"hintId": "udgukmsp",
+						"content": "```java\nSystem.out.println();```"
+					},
+					{
+						"hintId": "9fhbbd0q8",
+						"content": "# Lorem ipsum dolor \n- Eins\n- Zwei"
+					}
+				],
+				"custom": {
+					"mode": "standalone",
+					"expectedOutput": "Hello World",
+					"solutionTemplate": "console.log(\"Hello world\");"
+				},
+				"language": "typescript",
+				"statement": "# Hello World in TypeScript\r\n\r\nKappa",
+				"questionId": "oo8macg7",
+				"withCertainty": false
+			},
+			{
+				"type": "programming",
+				"hints": [
+					{
+						"hintId": "cci5vdc38",
+						"content": "```java\nSystem.out.println();```"
+					},
+					{
+						"hintId": "h4lfqgnj8",
+						"content": "# Lorem ipsum dolor \n- Eins\n- Zwei"
+					}
+				],
+				"custom": {
+					"mode": "callable",
+					"mainFile": "import { sum } from \"./Solution\";\r\n\r\nconst testCases = [\r\n\t[1, 1],\r\n\t[1, 2, 3, 4, 5],\r\n\t[7],\r\n\t[],\r\n];\r\n\r\nfunction sumExpected(numbers: number[]): number {\r\n\treturn numbers.reduce((a, b) => a + b, 0);\r\n}\r\n\r\nfor (const testCase of testCases) {\r\n\tconsole.log(\"### TEST ###\");\r\n\tconsole.log(testCase);\r\n\r\n\tconsole.log(\"### EXPECTED ###\");\r\n\tconsole.log(sumExpected(testCase));\r\n\r\n\tconsole.log(\"### ACTUAL ###\")\r\n\tconsole.log(sum(testCase));\r\n}\r\n",
+					"solutionTemplate": "export function sum(numbers: number[]): number {\r\n\t// DEINE LÖSUNG\r\n\treturn 0;\r\n}"
+				},
+				"language": "typescript",
+				"statement": "# Schleifen in TypeScript\r\n\r\nImplementiere einen Algorithmus, der als Eingabe eine Liste von Zahlen erhält und die Summe aller Zahlen in der Liste zurückgibt.\r\n\r\n**Beispiel:**\r\n\r\n**Eingabe**: `[1, 2, 3, 4, 5]`  \r\n**Ausgabe**: `15`",
+				"questionId": "v0qpvil4o",
+				"withCertainty": false
+			}
+		]
+	},
+	"lessonType": "TRADITIONAL",
+	"selfRegulatedQuestion": null
+}

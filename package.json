@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildwonwork": "npm run build",
+    "build": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.1",
+    "elm": "^0.19.1-5",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.22.5",
+    "@liascript/markdownify": "^0.1.0",
+    "common-js": "^0.3.8",
+    "custom_lia_script_build": "^0.1.0"
+  },
+  "type": "module"
+}
