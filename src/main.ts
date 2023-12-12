@@ -1,5 +1,5 @@
 import liascriptify from "../node_modules/@liascript/markdownify/dist/lib.js";
-import { libLiaScrImp } from "./../node_modules/custom_lia_script_build/dist/main.js";
+import liaScriptyfy from "./../node_modules/@e-learning-by-sse/nm-liascript-exporter-lib/lib/index.js";
 import * as fs from "fs";
 // const fs = require("fs");
 //const fs = module.constructor._load("fs");
@@ -59,7 +59,7 @@ function readJsonFile(filePath: string): any {
 
 let dataObject = readJsonFile("./JsonForJavaScrInJsx.json");
 
-libLiaScrImp(dataObject)
+liaScriptyfy(dataObject)
   .then((doc: string) => {
     console.log("ok", doc);
     fs.writeFileSync("example.md", doc);

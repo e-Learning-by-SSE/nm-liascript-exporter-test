@@ -176,7 +176,7 @@ def fib():
 for index, fibonacci_number in zip(range(10), fib()):
      print('{i:3}: {f:3}'.format(i=index, f=fibonacci_number))
 ```
-](https://github.com/timlrx/tailwind-nextjs-starter-blog  "# Introduction")
+](https://github.com/timlrx/tailwind-nextjs-starter-blog  "Introduction")
 
 # How was your day?
 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi molestias doloribus assumenda aspernatur in maxime numquam. Sint quas nobis voluptatum nemo consequatur aperiam ea sit eveniet, perferendis iure! Fugiat, optio!
